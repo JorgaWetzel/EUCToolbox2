@@ -54,6 +54,7 @@ $prefix = $prefix . "-";
 if (empty($prefix)) {
     $prefix = "ID-";
 }
+$devicename = $_POST['devicename'];
 $noupload = "yes";
 if (isset($_POST['CAD'])) {
     $conditionals = "Yes";
@@ -132,6 +133,7 @@ $data = array(
     array("cad" => "$conditionals"),
     array("emailsend" => "$email"),
     array("whitelabel" => "$prefix"),
+    array("devicename" => "$devicename"),
     array("noupload" => "$noupload"),
     array("fresh" => "$fresh")
 );

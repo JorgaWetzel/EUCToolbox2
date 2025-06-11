@@ -410,6 +410,19 @@ include "header.php";
               <tr>
                 <td>
                   <div class="input-container ic1">
+                    <input id="devicename" name="devicename" class="input" type="text" placeholder=" " />
+                    <div class="tooltip">
+                      <img src="tooltip.png" alt="Information" width="20" height="20">
+                      <span class="tooltiptext">Autopilot device name template (e.g. PC-%RAND:6%)</span>
+                    </div>
+                    <label for="devicename" class="placeholder">Device Name Template</label>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-container ic1">
                     <label class="switch">
                       <input id="fresh" name="fresh" class="input" type="checkbox" placeholder=" " value="Yes" />
                       <span class="slider round"></span>
