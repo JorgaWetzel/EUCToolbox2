@@ -139,6 +139,8 @@ param
     ,
     [string]$sendgridtoken #Sendgrid API token
     ,
+    [string]$devicename #Autopilot device name template
+    ,
     [object] $WebHookData #Webhook data for Azure Automation
 
     )
@@ -162,6 +164,7 @@ $emailsend = ((($bodyData.emailsend) | out-string).trim())
 $whitelabel = ((($bodyData.whitelabel) | out-string).trim())
 $fresh = ((($bodyData.fresh) | out-string).trim())
 $sendgridtoken = ((($bodyData.sendgridtoken) | out-string).trim())
+$devicename = ((($bodyData.devicename) | out-string).trim())
 
 $aadlogin = "yes"
 
@@ -7893,6 +7896,12 @@ $uri = "https://graph.microsoft.com/$graphApiVersion/$Resource"
     else {
         $profilename = "Autopilot Profile"
     }
+    if ($devicename) {
+        $deviceTemplate = $devicename
+    }
+    else {
+        $deviceTemplate = "%SERIAL%"
+    }
     $json = @"
     {
         "@odata.type": "#microsoft.graph.azureADWindowsAutopilotDeploymentProfile",
@@ -7900,7 +7909,7 @@ $uri = "https://graph.microsoft.com/$graphApiVersion/$Resource"
         "description": "OOBE Autopilot Profile",
         "language": "os-default",
         "extractHardwareHash": true,
-        "deviceNameTemplate": "%SERIAL%",
+        "deviceNameTemplate": "$deviceTemplate",
         "deviceType": "windowsPc",
         "enableWhiteGlove": true,
     	"outOfBoxExperienceSettings": {

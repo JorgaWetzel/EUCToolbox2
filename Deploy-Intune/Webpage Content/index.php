@@ -61,6 +61,7 @@ else {
   <li>The homepage field is a web URL (typically starting https://) which will be set as the default homepage in Microsoft Edge browser.</li>
   <li>Company Size has no impact on the deployment</li>
   <li>Entering a prefix will add it before all policies and Entra groups.  If left blank, it will default to "ID"</li>
+  <li>The Device Name Template controls how new Autopilot devices are named. Use values like <code>PC-%RAND:6%</code> or <code>DEVICE-%SERIAL%</code></li>
   <li>In the upload field, please add an image to be used as the desktop wallpaper/background on your Windows devices
     <br>
     This can be changed after deployment if required
